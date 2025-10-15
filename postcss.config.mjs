@@ -1,12 +1,12 @@
-// postcss.config.mjs (FIXED)
+// postcss.config.mjs
 
 /** @type {import('postcss-load-config').Config} */
 const config = {
   plugins: {
-    // 💥 FIX 1: Change to the correct plugin name: 'tailwindcss'
-    tailwindcss: {},
-    // 💥 FIX 2: Add autoprefixer for better compatibility
-    autoprefixer: {},
+    // 💥 FIX: Use the full package name as required by the error message
+    '@tailwindcss/postcss': {}, 
+    // Keep autoprefixer
+    autoprefixer: {}, 
   },
 }
 

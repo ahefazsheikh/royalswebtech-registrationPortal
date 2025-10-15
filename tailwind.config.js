@@ -1,10 +1,13 @@
-// tailwind.config.js (NEW FILE IN ROOT)
+// tailwind.config.js
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // This content array is crucial for the remote build to find your classes
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
+    // 💥 FIX: Explicitly include the root layout and page files
+    './app/*.{js,ts,jsx,tsx}', // Catches ./app/page.tsx and ./app/layout.tsx
+    
+    // Continue scanning all sub-directories
+    './app/**/*.{js,ts,jsx,tsx}', 
     './components/**/*.{js,ts,jsx,tsx}',
     './lib/**/*.{js,ts,jsx,tsx}',
   ],
@@ -12,7 +15,6 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    // Include plugins needed for utilities found in package.json
     require('tailwindcss-animate'),
   ],
 }
